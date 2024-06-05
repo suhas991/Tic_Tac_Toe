@@ -1,16 +1,13 @@
 import './Square.css'
 import { useState } from 'react';
 
-export default function Square(){
-    const [val,setVal]=useState(null);
+export default function Square({value , onSquareClick}){
+    // const [val,setVal]=useState(null);
 
-    function handleClick(){
-        setVal('X');
-    }
     return <button 
             className="square" 
-            onClick={handleClick}
+            onClick={onSquareClick}
             >
-            <span>{val}</span>
+            <span>{value}</span>
             </button>
 }

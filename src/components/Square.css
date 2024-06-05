@@ -1,7 +1,8 @@
  button {
         border-radius: 0px;
         border: 1px solid transparent;
-        padding: 5rem 5rem;
+        width: 9rem;
+        height: 9rem;
         font-size: 2em;
         font-family: inherit;
         background-color: #1a1a1a;
