@@ -1,0 +1,30 @@
+ button {
+        border-radius: 0px;
+        border: 1px solid transparent;
+        padding: 0.6em 1.2em;
+        font-size: 2em;
+        font-family: inherit;
+        background-color: #1a1a1a;
+        cursor: pointer;
+        transition: border-color 0.25s;
+        margin-bottom: 5px;
+      }
+      button:hover {
+        border-color: #646cff;
+    }
+      button:focus,
+      button:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+    }
+
+    button span{
+      padding: 5px;
+     margin: 5px;
+    }
+
+    .board-row{
+      display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 5px;
+    }
