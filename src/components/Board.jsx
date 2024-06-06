@@ -1,12 +1,27 @@
 import { useState } from 'react'
 import Square from './Square'
 import './Board.css'
-export default function Board(){
-
-    const [squares,setSquares]=useState(Array(9).fill(null));
-    const [mark,setMark]=useState(true);
+export default function Board({ mark, squares, onPlay }){
     
-    
+    //handle event code
+    const handleClick = (i)=> {
+        if(squares[i] || checkWinner(squares)){
+         console.log("Dont cheat");
+         return;
+        }
+ 
+        const newSqaures=squares.slice();
+        console.log(newSqaures);
+        
+        if(mark){
+         newSqaures[i]='X';
+        }else{
+         newSqaures[i]='O';
+        }
+        onPlay(newSqaures);
+     }
+     
+    //check winner
     const checkWinner = (squares)=> {
        const lines=[
         [0,1,2],
@@ -27,8 +42,8 @@ export default function Board(){
        }
        return null;
     }
+    //Display win
     const winner = checkWinner(squares);
-
     let status;
     if(winner){
         status = "Winner : " + winner;
@@ -36,24 +51,8 @@ export default function Board(){
     }else{
         status = "Next Player : " + ( mark ? 'X' : 'O' );
     }
-
-    const handleClick = (i)=> {
-       if(squares[i] || checkWinner(squares)){
-        console.log("Dont cheat");
-        return;
-       }
-
-       const newSqaures=squares.slice();
-       console.log(newSqaures);
-       
-       if(mark){
-        newSqaures[i]='X';
-       }else{
-        newSqaures[i]='O';
-       }
-       setSquares(newSqaures);
-       setMark(!mark);
-    }
+    
+    
 
     return <>
         <div className="status">{status}</div>
