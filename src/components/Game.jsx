@@ -31,17 +31,12 @@ export default function Game(){
             <button onClick={()=>jumpTo(move)}>{description}</button>
         </li>
     );
-    });
-    
-    const reset = ()=>{
-
-    }
+    });   
 
     return <>
     <div className="game">
         <div className="game-board">
            <Board mark={mark} squares={currentSquares} onPlay={handlePlay}/>
-           <div className='PlayAgain' onClick={reset}>Play Again</div>
         </div>
         <div className='history'>
             <ol>
