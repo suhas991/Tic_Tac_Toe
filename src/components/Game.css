@@ -1,4 +1,27 @@
 .game{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.history{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+
+}
+.history button{
+    height: fit-content;
+    padding: 2px;
+    text-align:center;
+    font-size: 15px;
+}
+ol{
+    margin: 5px;
+    padding: 0px;
 }

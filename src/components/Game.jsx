@@ -3,17 +3,22 @@ import { useState } from 'react';
 import "./Game.css"
 export default function Game(){
 
-    const [mark,setMark]=useState(true);
+ 
     const [history, setHistory] = useState([Array(9).fill(null)]);
-    const currentSquares = history[history.length - 1];
+    const [currMove,setCurrmove] = useState(0);
+    const currentSquares = history[currMove];
+    const mark = currMove % 2 === 0;
+    
 
     const handlePlay =(nextSquares)=>{
-    setHistory([...history,nextSquares])
-    setMark(!mark);
+    const nextHistory = [...history.slice(0, currMove + 1), nextSquares];
+    setHistory(nextHistory);
+    setCurrmove(nextHistory.length - 1);
     }
-    const jumpTo = ()=>{
-
+    const jumpTo = (nextMove)=>{
+    setCurrmove(nextMove);
     }
+    
     const moves = history.map((squares,move)=>{
     let description;
     if(move > 0){
@@ -22,7 +27,7 @@ export default function Game(){
         description ="Go to game Start";
     }
     return (
-        <li>
+        <li key={move}>
             <button onClick={()=>jumpTo(move)}>{description}</button>
         </li>
     );

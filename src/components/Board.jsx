@@ -47,7 +47,7 @@ export default function Board({ mark, squares, onPlay }){
     let status;
     if(winner){
         status = "Winner : " + winner;
-        document.querySelector('.status').style.color='Green';
+        //document.querySelector('.status').style.color='Green';
     }else{
         status = "Next Player : " + ( mark ? 'X' : 'O' );
     }
@@ -71,6 +71,8 @@ export default function Board({ mark, squares, onPlay }){
             <Square value={squares[7]} onSquareClick={()=>handleClick(7)}/>
             <Square value={squares[8]} onSquareClick={()=>handleClick(8)}/>
         </div>
+
+        <div className='Play Again'>Play Again</div>
        
     </>
 }
