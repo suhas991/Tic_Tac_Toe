@@ -50,9 +50,7 @@ export default function Board({ mark, squares, onPlay }){
         //document.querySelector('.status').style.color='Green';
     }else{
         status = "Next Player : " + ( mark ? 'X' : 'O' );
-    }
-    
-    
+    } 
 
     return <>
         <div className="status">{status}</div>
@@ -70,9 +68,6 @@ export default function Board({ mark, squares, onPlay }){
             <Square value={squares[6]} onSquareClick={()=>handleClick(6)}/>
             <Square value={squares[7]} onSquareClick={()=>handleClick(7)}/>
             <Square value={squares[8]} onSquareClick={()=>handleClick(8)}/>
-        </div>
-
-        <div className='Play Again'>Play Again</div>
-       
+        </div>   
     </>
 }

@@ -25,3 +25,11 @@ ol{
     margin: 5px;
     padding: 0px;
 }
+.PlayAgain{
+  height: auto;
+  background-color: rgb(0, 7, 7);
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 15px;
+}
