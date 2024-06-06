@@ -9,6 +9,8 @@
         cursor: pointer;
         transition: border-color 0.25s;
         margin-bottom: 5px;
+        box-decoration-break: slice;
+
       }
       button:hover {
         border-color: #646cff;
@@ -25,7 +27,7 @@
 
     .board-row{
       display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 5px;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 5px;
     }

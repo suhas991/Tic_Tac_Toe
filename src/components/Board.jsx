@@ -1,18 +1,63 @@
 import { useState } from 'react'
 import Square from './Square'
+import './Board.css'
 export default function Board(){
+
     const [squares,setSquares]=useState(Array(9).fill(null));
     const [mark,setMark]=useState(true);
     
+    
+    const checkWinner = (squares)=> {
+       const lines=[
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]
+       ];
+    
+       for(let i=0;i<lines.length;i++){
+          const [a,b,c]=lines[i];
+          if(squares[a] && squares[a] === squares[b] && squares[a]===squares[c]){
+            return squares[a];
+          }
+       }
+       return null;
+    }
+    const winner = checkWinner(squares);
+
+    let status;
+    if(winner){
+        status = "Winner : " + winner;
+        document.querySelector('.status').style.color='Green';
+    }else{
+        status = "Next Player : " + ( mark ? 'X' : 'O' );
+    }
+
     const handleClick = (i)=> {
+       if(squares[i] || checkWinner(squares)){
+        console.log("Dont cheat");
+        return;
+       }
+
        const newSqaures=squares.slice();
        console.log(newSqaures);
-       newSqaures[i]='X';
+       
+       if(mark){
+        newSqaures[i]='X';
+       }else{
+        newSqaures[i]='O';
+       }
        setSquares(newSqaures);
+       setMark(!mark);
     }
 
     return <>
-        <div clas   sName="board-row">
+        <div className="status">{status}</div>
+        <div className="board-row">
             <Square value={squares[0]} onSquareClick={()=>handleClick(0)}/>
             <Square value={squares[1]} onSquareClick={()=>handleClick(1)}/>
             <Square value={squares[2]} onSquareClick={()=>handleClick(2)}/>
