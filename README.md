@@ -1,4 +1,4 @@
-- ## Tic-Tac-Toe
+- ## Tic-Tac-Toe Game
 
 This repository contains a simple implementation of the classic game Tic-Tac-Toe.
 
